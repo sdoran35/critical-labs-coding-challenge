@@ -1,3 +1,7 @@
+/**
+ * @author Sean Doran
+ * @description This file contains the Title component.
+ */
 import React from "react";
 
 

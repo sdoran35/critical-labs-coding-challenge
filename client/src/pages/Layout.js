@@ -1,3 +1,8 @@
+/**
+ * @author Sean Doran
+ * @description This file contains the Layout component.
+ * This is where all the other components are put together.
+ */
 import React from "react";
 
 
@@ -11,14 +16,15 @@ import Alarm from "../components/Alarm";
 export default class Layout extends React.Component {
 
 
-
-
+    /**
+     * This will render the main overall DOM
+     * @returns {*}
+     */
     render() {
         const title = "Critical Labs Alarm";
 
         return (
             <div>
-
 
 
                 <Header title={title}/>

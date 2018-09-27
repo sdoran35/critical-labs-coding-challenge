@@ -1,6 +1,17 @@
+/**
+ * @author Sean Doran
+ * @description This file contains the Alarm component.
+ * This component is also where the data is first recieved from NodeJS.
+ * Afterwards it will be passed around different components to make it dynamic.
+ * This will allow for the user to add or hide alarms for certain weeks.
+ */
 import React from "react";
 
 export default class Alarm extends React.Component {
+    /**
+     * This is the constructor for the class.
+     * @param props
+     */
     constructor(props) {
         super();
         this.state = {
@@ -8,6 +19,9 @@ export default class Alarm extends React.Component {
         };
     }
 
+    /**
+     * This method will fetch data and parse thru it.
+     */
     componentDidMount() {
 
         fetch("http://localhost:3001/alarms")
@@ -15,6 +29,7 @@ export default class Alarm extends React.Component {
             .then(
                 (result) => {
                     this.setState({
+
                         isLoaded: true,
                         name: result.name,
                         days: result.days
@@ -32,6 +47,10 @@ export default class Alarm extends React.Component {
             )
     }
 
+    /**
+     * This is where the Alarm component will render the DOM.
+     * @returns {*}
+     */
     render() {
         const { error, isLoaded, days, name} = this.state;
         if (error) {
@@ -41,16 +60,16 @@ export default class Alarm extends React.Component {
         } else {
             return (
                 <div>
-                     {name.map(name => (
-                         <p>{name.name}</p>
+                    {name.map(name => (
+                        <p>{name.name}</p>
                     ))}
-                <table>
-                    {days.map(item => (
-                        <li key={item.name}>
-                            {item.day} {item.time}
-                        </li>
-                    ))}
-                </table>
+                    <table>
+                        {days.map(item => (
+                            <li key={item.name}>
+                                {item.day} {item.time}
+                            </li>
+                        ))}
+                    </table>
                 </div>
             );
         }

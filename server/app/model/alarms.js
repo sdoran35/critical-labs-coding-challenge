@@ -1,3 +1,9 @@
+/**
+ * This is where the data is stored for the current alarms.
+ * @type {{name: {id: number, name: string, age: number}[], days: *[]}}
+ */
+
+
 const myObj = {
     name: [
         {id: 1, name: "Johnny", age: 20},
