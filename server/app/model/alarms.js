@@ -1,14 +1,19 @@
 const myObj = {
-    "name":"Johnny",
-    "days": {
-        "sunday":"none",
-        "monday":new Date(2018, 0, 1, 0, 7, 0, 0),
-        "tuesday":new Date(2018, 0, 1, 0, 9, 0, 0),
-        "wednesday":new Date(2018, 0, 1, 0, 9, 0, 0),
-        "thursday":new Date(2018, 0, 1, 0, 7, 45, 0),
-        "friday":new Date(2018, 0, 1, 0, 8, 15, 0),
-        "saturday":"none"
-    }
+    name: [
+        {id: 1, name: "Johnny", age: 20},
+
+    ],
+    days: [
+        { id: 1, day: 'Sunday', time: 'No Alarm' },
+        { id: 2, day: 'Monday', time: '7' },
+        { id: 3, day: 'Tuesday', time: '9' },
+        { id: 4, day: 'Wednesday', time: '9' },
+        { id: 5, day: 'Thursday', time: '7:45' },
+        { id: 6, day: 'Friday', time: '8:15' },
+        { id: 7, day: 'Saturday', time: 'No Alarm' },
+
+    ]
 };
 
 module.exports = myObj;
+
