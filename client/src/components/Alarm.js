@@ -1,7 +1,7 @@
 /**
  * @author Sean Doran
  * @description This file contains the Alarm component.
- * This component is also where the data is first recieved from NodeJS.
+ * This component is also where the data is first received from NodeJS.
  * Afterwards it will be passed around different components to make it dynamic.
  * This will allow for the user to add or hide alarms for certain weeks.
  */
@@ -65,9 +65,13 @@ export default class Alarm extends React.Component {
                     ))}
                     <table>
                         {days.map(item => (
-                            <li key={item.name}>
+                            <tr>
+                                <th key={item.day}>
+                                </th>
+                                <tr>
                                 {item.day} {item.time}
-                            </li>
+                                </tr>
+                            </tr>
                         ))}
                     </table>
                 </div>
