@@ -3,32 +3,12 @@
  * @description This file contains the Clock component.
  */
 import React from "react";
+import ClockDisplay from "./Clock/ClockDisplay";
 
 export default  class Clock extends React.Component {
-    /**
-     * This is the constructor for the Clock component.
-     */
-    constructor(){
-        super();
-        this.state ={time:new Date()}
-    }
 
-    /**
-     * This method will set a new time.
-     */
-    currentTime(){
-        this.setState({
-            time: new Date()
-        })
-    }
 
-    /**
-     * This is where the time will update every second.
-     * This creates a clock.
-     */
-    componentWillMount(){
-        setInterval(() =>this.currentTime(),1000)
-    }
+
 
     /**
      * This is where React will render the DOM
@@ -36,11 +16,12 @@ export default  class Clock extends React.Component {
      */
     render() {
         return (
-            <h1>
-                {this.state.time.toLocaleTimeString()}
 
-            </h1>
+            <div>
+                <ClockDisplay/>
 
+
+            </div>
         );
 
     }
