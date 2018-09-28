@@ -6,6 +6,8 @@
  * This will allow for the user to add or hide alarms for certain weeks.
  */
 import React from "react";
+import AlarmHeader from "./Alarm/AlarmHeader";
+
 
 export default class Alarm extends React.Component {
     /**
@@ -52,7 +54,7 @@ export default class Alarm extends React.Component {
      * @returns {*}
      */
     render() {
-        const { error, isLoaded, days, name} = this.state;
+        const { error, isLoaded, days} = this.state;
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
@@ -60,18 +62,28 @@ export default class Alarm extends React.Component {
         } else {
             return (
                 <div>
-                    {name.map(name => (
-                        <p>{name.name}</p>
-                    ))}
+                    <AlarmHeader/>
                     <table>
                         {days.map(item => (
+
+
                             <tr>
-                                <th key={item.day}>
+
+                                <th>
+                                    {item.day}
                                 </th>
-                                <tr>
-                                {item.day} {item.time}
-                                </tr>
+                            <tr>
+                                {item.time}
                             </tr>
+
+
+</tr>
+
+
+
+
+
+
                         ))}
                     </table>
                 </div>

@@ -11,6 +11,7 @@ export default class AlarmHeader extends React.Component {
         return (
             <div>
 
+                <h2>Alarm </h2>
 
             </div>
         );
