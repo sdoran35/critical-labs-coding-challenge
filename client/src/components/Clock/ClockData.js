@@ -3,7 +3,7 @@ import Alarm from "../Alarm";
 
 export default class ClockData extends React.Component {
 
-    constructor() {
+    constructor(props) {
         super();
         this.state = {
             time: new Date()
@@ -40,8 +40,10 @@ export default class ClockData extends React.Component {
                     <br/>
                     {this.state.time.toDateString()}
                     <br/>
-                    {this.meme}
+
                 </h2>
+
+
 
             </div>
         );

@@ -18,7 +18,7 @@ export default  class Clock extends React.Component {
         return (
 
             <div>
-                <ClockDisplay/>
+                <ClockDisplay  checked={this.props.checked} onChange={this.props.handleChange}/>
 
 
             </div>

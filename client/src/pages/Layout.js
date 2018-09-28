@@ -15,6 +15,49 @@ import Alarm from "../components/Alarm";
 
 export default class Layout extends React.Component {
 
+    constructor(props){
+        super();
+        this.state = {
+            alarms: null,
+            checked : false
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+
+    }
+
+    handleChange(checked){
+        this.setState({checked});
+    }
+
+
+    /**
+     * This method will fetch data and parse thru it.
+     */
+    componentDidMount() {
+
+        fetch("http://localhost:3001/alarms")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+
+                        isLoaded: true,
+                        name: result.name,
+                        days: result.days
+                    });
+                },
+                // Note: it's important to handle errors here
+                // instead of a catch() block so that we don't swallow
+                // exceptions from actual bugs in components.
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+            )
+    }
 
     /**
      * This will render the main overall DOM

@@ -16,45 +16,20 @@ export default class Alarm extends React.Component {
      */
     constructor(props) {
         super();
-        this.state = {
-            alarms: null,
-        };
+
     }
 
     /**
      * This method will fetch data and parse thru it.
      */
-    componentDidMount() {
 
-        fetch("http://localhost:3001/alarms")
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-
-                        isLoaded: true,
-                        name: result.name,
-                        days: result.days
-                    });
-                },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
-    }
 
     /**
      * This is where the Alarm component will render the DOM.
      * @returns {*}
      */
     render() {
-        const { error, isLoaded, days} = this.state;
+        const { error, isLoaded, days} = this.props;
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
