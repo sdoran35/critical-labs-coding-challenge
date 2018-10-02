@@ -8,6 +8,20 @@ export default class ClockDisplay extends React.Component {
 
 
         super();
+        this.state = {
+
+            checked: false,
+            alarmOn: false
+        };
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(checked,alarmOn) {
+        this.setState({
+            checked,
+            alarmOn
+
+        });
 
 
     }
@@ -24,12 +38,11 @@ export default class ClockDisplay extends React.Component {
                 <label htmlFor="normal-switch">
 
                     <Switch
-                        onChange={this.props.handleChange}
-                        checked={this.props.checked}
+                        onChange={this.handleChange}
+                        checked={this.state.checked}
                         id="normal-switch"
                     />
                 </label>
-
 
             </div>
         );

@@ -6,6 +6,10 @@ import React from "react";
 import ClockDisplay from "./Clock/ClockDisplay";
 
 export default  class Clock extends React.Component {
+    constructor(props){
+        super();
+
+    }
 
 
 

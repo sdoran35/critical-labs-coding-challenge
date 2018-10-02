@@ -17,18 +17,10 @@ export default class Layout extends React.Component {
 
     constructor(props){
         super();
-        this.state = {
-            alarms: null,
-            checked : false
-        };
 
-        this.handleChange = this.handleChange.bind(this);
 
     }
 
-    handleChange(checked){
-        this.setState({checked});
-    }
 
 
     /**
