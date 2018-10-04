@@ -6,8 +6,10 @@ import React from "react";
 import ClockDisplay from "./Clock/ClockDisplay";
 
 export default  class Clock extends React.Component {
-    constructor(props){
-        super();
+
+    constructor(props) {
+        super(props);
+
 
     }
 
@@ -19,10 +21,13 @@ export default  class Clock extends React.Component {
      * @returns {*}
      */
     render() {
+
+
         return (
 
             <div>
-                <ClockDisplay  checked={this.props.checked} onChange={this.props.handleChange}/>
+                <ClockDisplay   handleChange={this.props.handleChange} checked={this.props.checked}  time={this.props.time} data={this.props.data}/>
+
 
 
             </div>

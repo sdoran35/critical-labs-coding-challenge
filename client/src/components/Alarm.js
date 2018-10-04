@@ -15,52 +15,22 @@ export default class Alarm extends React.Component {
      * @param props
      */
     constructor(props) {
-        super();
-        this.state = {
-            alarms : null
+        super(props);
 
-        }
 
     }
 
-    /**
-     * This method will fetch data and parse thru it.
-     */
-
-    /**
-     * This method will fetch data and parse thru it.
-     */
-    componentDidMount() {
-
-        fetch("http://localhost:3001/alarms")
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-
-                        isLoaded: true,
-                        name: result.name,
-                        days: result.days
-                    });
-                },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
-    }
 
     /**
      * This is where the Alarm component will render the DOM.
      * @returns {*}
      */
     render() {
-        const { error, isLoaded, days} = this.state;
+        const isLoaded = this.props.isLoaded;
+        const data = this.props.data;
+        const error = this.props.error;
+
+
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
@@ -70,24 +40,20 @@ export default class Alarm extends React.Component {
                 <div>
                     <AlarmHeader/>
                     <table>
-                        {days.map(item => (
+                        {data.map(item => (
 
 
                             <tr>
 
                                 <th>
-                                    {item.day}
+                                    {item.alarmDay}
                                 </th>
-                            <tr>
-                                {item.time}
+                                <tr>
+                                    {item.alarmTime}
+                                </tr>
+
+
                             </tr>
-
-
-</tr>
-
-
-
-
 
 
                         ))}

@@ -1,30 +1,21 @@
 import React from "react";
 import ClockData from "./ClockData";
 import Switch from "react-switch";
+import ClockAlarm from "./ClockAlarm";
 
 export default class ClockDisplay extends React.Component {
 
     constructor(props) {
 
 
-        super();
-        this.state = {
-
-            checked: false,
-            alarmOn: false
-        };
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange(checked,alarmOn) {
-        this.setState({
-            checked,
-            alarmOn
-
-        });
+        super(props);
 
 
     }
+
+
+
+
 
 
 
@@ -32,14 +23,17 @@ export default class ClockDisplay extends React.Component {
     render() {
         return (
             <div>
-                <ClockData/>
+                <ClockData time={this.props.time}/>
+
+
+                <ClockAlarm data={this.props.data}/>
 
 
                 <label htmlFor="normal-switch">
 
                     <Switch
-                        onChange={this.handleChange}
-                        checked={this.state.checked}
+                        onChange={this.props.handleChange}
+                        checked={this.props.checked}
                         id="normal-switch"
                     />
                 </label>
